@@ -17,8 +17,8 @@
         http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
-	<context:annotation-config/>
-		<bean id="jspViewResolver"
+  <context:annotation-config />
+    	<bean id="jspViewResolver"
         class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass"
             value="org.springframework.web.servlet.view.JstlView" />
@@ -62,10 +62,13 @@
         class="org.springframework.orm.hibernate3.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
-        <tx:annotation-driven transaction-manager="transactionManager"/>
-     <bean id="userManager"
-    	class="org.geymer.contactlist.service.UserManagerImpl">
-    </bean>
-    <bean id="userDao" class="org.geymer.contactlist.dao.UserDAOImpl"></bean>
+        
     
+        <bean id="userManager"
+        	class="org.geymer.contactlist.service.UserManagerImpl">
+        </bean>
+        <bean id="userDAO"
+        	class="org.geymer.contactlist.dao.UserDAOImpl">
+        </bean>
+        <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>
 </beans>

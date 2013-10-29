@@ -2,36 +2,34 @@ package org.geymer.contactlist.service;
 
 import java.util.List;
 
-import org.geymer.contactlist.dao.UserDAOImpl;
+import org.geymer.contactlist.dao.UserDAO;
 import org.geymer.contactlist.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-@Service
 @Transactional
 public class UserManagerImpl implements UserManager {
 	@Autowired
-	UserDAOImpl userDao;
+	UserDAO userDAO;
 
 	@Override
 	public void addUser(User user) {
-		userDao.addUser(user);
+		userDAO.addUser(user);
 	}
 
 	@Override
 	public void deleteUser(Integer id) {
-		userDao.deleteUser(id);
+		userDAO.deleteUser(id);
 	}
 
 	@Override
 	public List<User> getUsers() {
-		return userDao.getUsers();
+		return userDAO.getUsers();
 	}
 
 	@Override
 	public User getUser(Integer id) {
-		return userDao.getUser(id);
+		return userDAO.getUser(id);
 	}
 
 }

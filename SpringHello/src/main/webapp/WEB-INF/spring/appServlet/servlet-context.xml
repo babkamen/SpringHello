@@ -23,7 +23,10 @@
 	
 	<context:component-scan base-package="org.geymer.contactlist" />
 	
-	
+		<beans:bean id="userDAO" class="org.geymer.contactlist.dao.UserDAOImpl"></beans:bean>
+	<beans:bean id="userManager"
+		class="org.geymer.contactlist.service.UserManagerImpl">
+	</beans:bean>
 
  
 

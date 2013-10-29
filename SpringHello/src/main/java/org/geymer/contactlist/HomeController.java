@@ -3,7 +3,7 @@ package org.geymer.contactlist;
 import java.util.Locale;
 
 import org.geymer.contactlist.entity.User;
-import org.geymer.contactlist.service.UserManagerImpl;
+import org.geymer.contactlist.service.UserManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class HomeController {
 	@Autowired
-	UserManagerImpl userManager;
+	UserManager userManager;
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	/**
