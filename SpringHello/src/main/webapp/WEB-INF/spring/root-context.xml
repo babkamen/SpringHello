@@ -40,7 +40,7 @@
 	</bean>
  
     <bean id="sessionFactory"
-        class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+        class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
         <property name="configLocation">
             <value>classpath:hibernate.cfg.xml</value>
@@ -53,8 +53,11 @@
                 <prop key="hibernate.dialect">${jdbc.dialect}</prop>
                 <prop key="hibernate.show_sql">true</prop>
             </props>
+            
         </property>
-    </bean>
+        <property name="packagesToScan" value="org.geymer.user.entity" >
+        </property>
+        </bean>
 
     
    
@@ -62,13 +65,16 @@
         class="org.springframework.orm.hibernate3.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
-        
-    
-        <bean id="userManager"
-        	class="org.geymer.contactlist.service.UserManagerImpl">
+
+
+    <bean id="userManager"
+    	class="org.geymer.user.service.UserManagerImpl">
         </bean>
-        <bean id="userDAO"
-        	class="org.geymer.contactlist.dao.UserDAOImpl">
+    <bean id="userDAO" class="org.geymer.user.dao.UserDAOImpl">
         </bean>
-        <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>
+    <tx:annotation-driven transaction-manager="transactionManager" />
+    <bean id="noteManager"
+    	class="org.geymer.user.service.NoteManagerImpl" >
+        </bean>
+    <bean id="noteDAO" class="org.geymer.user.dao.NoteDAOImpl"></bean>
 </beans>

@@ -21,12 +21,9 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="org.geymer.contactlist" />
+	<context:component-scan base-package="org.geymer.user.controller" />
 	
-		<beans:bean id="userDAO" class="org.geymer.contactlist.dao.UserDAOImpl"></beans:bean>
-	<beans:bean id="userManager"
-		class="org.geymer.contactlist.service.UserManagerImpl">
-	</beans:bean>
+	
 
  
 
